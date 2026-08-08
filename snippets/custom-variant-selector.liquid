@@ -1,0 +1,55 @@
+<div class="variant-wrapper">
+  {% for option in product.options_with_values %}
+    <div class="option-group" data-option-index="{{ forloop.index0 }}">
+      <p class="option-name">{{ option.name }}</p>
+
+      <div class="option-values">
+        {% if option.name == 'Color' or option.name == 'Colour' %}
+          {% assign rendered_colors = '' %}
+
+          {% for variant in product.variants %}
+            {% assign color_value = variant.options[forloop.parentloop.index0] %}
+
+            {% unless rendered_colors contains color_value %}
+              {% assign rendered_colors = rendered_colors | append: color_value | append: ',' %}
+              {% assign hex = variant.metafields.custom.color_swatch_code %}
+
+              <button
+                class="option-btn color-swatch"
+                data-option-index="{{ forloop.parentloop.index0 }}"
+                data-value="{{ color_value }}"
+              >
+                <span
+                  class="swatch"
+                  style="background-color: {{ hex | default: color_value | downcase }};"
+                ></span>
+              </button>
+            {% endunless %}
+          {% endfor %}
+
+        {% else %}
+          {% for value in option.values %}
+            <button
+              class="option-btn"
+              data-option-index="{{ forloop.parentloop.index0 }}"
+              data-value="{{ value }}"
+            >
+              {{ value }}
+            </button>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+<p id="selected-variant"></p>
+
+<form id="product-form">
+  <input type="hidden" name="id" id="variant-id">
+  <button type="submit" id="add-to-cart" disabled data-main-atc>Add to Cart</button>
+</form>
+
+<script>
+  window.productData = {{ product | json }};
+</script>

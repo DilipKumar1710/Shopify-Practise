@@ -1,0 +1,140 @@
+.product-layout{
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.option-values {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.option-btn {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  background: #fff;
+}
+
+.option-btn.selected{
+    border: 2px solid #000;
+}
+
+.option-btn.color-swatch{
+    border: none;
+}
+
+.option-btn.selected span {
+  border: 2px solid #000;
+}
+
+.option-btn.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  position: relative;
+}
+
+.option-btn.disabled::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: red;
+  top: 50%;
+  left: 0;
+  transform: rotate(45deg);
+}
+
+.swatch {
+  display: block;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid lightgrey;
+}
+
+#product-form button[type="submit"]{
+    padding: 18px 22px;
+    width: 100%;
+    border: none;
+    outline: none;
+    background: red;
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+    font-family: sans-serif;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+#product-form button[type="submit"][disabled]{
+    background: rgba(255, 0, 0, .3);
+    cursor: auto;
+}
+
+@media screen and (max-width: 749px){
+    .product-layout{
+        flex-direction: column;
+    }
+}
+
+/* Sticky ATC css */
+
+.sticky-atc {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  background: #fff;
+  border-top: 1px solid #ddd;
+
+  transform: translateY(100%);
+  transition: transform 0.25s ease;
+
+  padding: 10px 15px calc(10px + env(safe-area-inset-bottom));
+  z-index: 999;
+}
+
+.sticky-atc.show {
+  transform: translateY(0);
+  background: lightyellow;
+}
+
+.sticky-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sticky-title {
+  font-size: 14px;
+  font-weight: bold;
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#sticky-add-to-cart {
+  padding: 10px;
+  width: 40%;
+  border: none;
+  outline: none;
+  background: red;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: sans-serif;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .sticky-atc {
+    display: none !important;
+  }
+}

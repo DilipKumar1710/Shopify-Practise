@@ -1,0 +1,515 @@
+{% liquid
+  assign categories = section.blocks | where: 'type', 'category'
+  assign faqs = section.blocks | where: 'type', 'faq'
+%}
+
+{% style %}
+  .support-widget__header{
+    background-color: {{ section.settings.header_color }};
+  }
+
+  .widget-view{
+    background-color: {{ section.settings.widget_color }};
+  }
+
+  .support-widget__launcher span svg path{
+    stroke: {{ section.settings.launcher_icon_color }} !important;
+  }
+
+  .support-widget__launcher span svg circle{
+    stroke: {{ section.settings.launcher_icon_color }} !important;
+  }
+{% endstyle %}
+
+{{ 'support-widget.css' | asset_url | stylesheet_tag }}
+
+<section class="support-widget-section" data-section-id="{{ section.id }}">
+  <!-- Floating Launcher -->
+  <button
+    class="support-widget__launcher launcher--{{ section.settings.launcher_position }}"
+    type="button"
+    aria-label="Open support widget"
+    style="
+      background: {{ section.settings.launcher_bg_color }};
+      width: {{ section.settings.launcher_size }}px;
+      height: {{ section.settings.launcher_size }}px;
+      bottom: {{ section.settings.launcher_bottom_offset }}px;
+      {% if section.settings.launcher_position == 'left' %}
+        left: {{ section.settings.launcher_side_offset }}px;
+      {% else %}
+        right: {{ section.settings.launcher_side_offset }}px;
+      {% endif %}
+    "
+  >
+    <span
+      style="
+        --launcher-icon-size:
+        {{ section.settings.launcher_icon_size }}px;
+      "
+    >
+      {{ section.settings.widget_icon }}
+    </span>
+  </button>
+
+  <!-- Widget -->
+  <div class="support-widget" aria-hidden="true">
+    <div class="support-widget__overlay"></div>
+
+    <div
+      class="support-widget__panel"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="support-widget-title"
+    >
+      <!-- Header -->
+      <div class="support-widget__header">
+        <div class="support-widget__contacts">
+          {% if section.settings.phone != blank %}
+            <a
+              href="tel:{{ section.settings.phone }}"
+              class="support-contact-link"
+              data-tooltip="{{ section.settings.phone_tooltip }}"
+            >
+              {{ section.settings.phone_svg }}
+
+              <span class="contact-tooltip">
+                {{ section.settings.phone_tooltip }}
+              </span>
+            </a>
+          {% endif %}
+
+          {% if section.settings.whatsapp != blank %}
+            <a
+              href="https://wa.me/{{ section.settings.whatsapp | remove: '+' }}"
+              target="_blank"
+              class="support-contact-link"
+              data-tooltip="{{ section.settings.whatsapp_tooltip }}"
+            >
+              {{ section.settings.whatsapp_svg }}
+
+              <span class="contact-tooltip">
+                {{ section.settings.whatsapp_tooltip }}
+              </span>
+            </a>
+          {% endif %}
+
+          {% if section.settings.email != blank %}
+            <a
+              href="mailto:{{ section.settings.email }}"
+              class="support-contact-link"
+              data-tooltip="{{ section.settings.email_tooltip }}"
+            >
+              {{ section.settings.email_svg }}
+
+              <span class="contact-tooltip">
+                {{ section.settings.email_tooltip }}
+              </span>
+            </a>
+          {% endif %}
+        </div>
+
+        <button
+          class="widget-close"
+          type="button"
+        >
+          ✕
+        </button>
+      </div>
+
+      <!-- Categories View -->
+      <div class="widget-view widget-view--categories active">
+        <h3 id="support-widget-title" class="widget-view--categories-title">{{ section.settings.widget_title }}</h3>
+
+        <div class="faq-categories">
+          {% for block in categories %}
+            <button type="button" class="faq-category-card" data-category="{{ block.settings.category_id }}">
+              {% if block.settings.icon != blank %}
+                {{ block.settings.icon | image_url: width: 80 | image_tag }}
+              {% endif %}
+
+              <span>
+                {{ block.settings.title }}
+              </span>
+            </button>
+          {% endfor %}
+        </div>
+
+        <!-- Featured FAQs -->
+        <div class="featured-faqs">
+          <h4 class="featured-faqs-title">{{ section.settings.featured_heading }}</h4>
+
+          {% for category in categories %}
+            <div class="featured-category">
+              {% assign featured_count = 0 %}
+
+              {% for faq in faqs %}
+                {% if faq.settings.parent_category == category.settings.category_id %}
+                  {% if featured_count < section.settings.featured_limit %}
+                    <button
+                      class="featured-faq-link"
+                      type="button"
+                      data-category="{{ faq.settings.parent_category }}"
+                      data-faq="{{ forloop.index0 }}-{{ faq.settings.parent_category | handleize }}"
+                    >
+                      <div class="featured-faq-link__inner">
+                        {% if category.settings.icon != blank %}
+                          {{
+                            category.settings.icon
+                            | image_url: width: 40
+                            | image_tag: class: 'featured-faq-link__icon', loading: 'lazy'
+                          }}
+                        {% endif %}
+
+                        <div class="featured-faq-link__content">
+                          <span class="featured-faq-link__question">
+                            {{ faq.settings.question }}
+                          </span>
+
+                          <span class="each-featured-question">
+                            {{ category.settings.title }}
+                          </span>
+                        </div>
+                      </div>
+                    </button>
+
+                    {% assign featured_count = featured_count | plus: 1 %}
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Questions View -->
+
+      <div class="widget-view widget-view--questions">
+        <div class="questions-view-header">
+          <button
+            class="back-to-categories"
+            type="button"
+            aria-label="Back"
+          >
+            <span class="back-icon">←</span>
+          </button>
+
+          <h3 class="current-category-title"></h3>
+        </div>
+
+        <div class="questions-container">
+          {% for faq in faqs %}
+            {% assign current_category = blank %}
+
+            {% for category in categories %}
+              {% if category.settings.category_id == faq.settings.parent_category %}
+                {% assign current_category = category %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
+
+            <button
+              class="faq-question-card"
+              type="button"
+              data-category="{{ faq.settings.parent_category }}"
+              data-faq="{{ forloop.index0 }}-{{ faq.settings.parent_category | handleize }}"
+            >
+              <div class="faq-question-card__inner">
+                {% if current_category.settings.icon != blank %}
+                  {{
+                    current_category.settings.icon
+                    | image_url: width: 48
+                    | image_tag: class: 'faq-question-card__icon', loading: 'lazy'
+                  }}
+                {% endif %}
+
+                <div class="faq-question-card__content">
+                  <span class="faq-question-card__question">
+                    {{ faq.settings.question }}
+                  </span>
+
+                  <span class="faq-question-card__category">
+                    {{ current_category.settings.title }}
+                  </span>
+                </div>
+              </div>
+            </button>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Answer View -->
+      <div class="widget-view widget-view--answer">
+        <div class="answer-view-header">
+          <button
+            class="back-to-questions"
+            type="button"
+            aria-label="Back"
+          >
+            <span class="back-icon">←</span>
+          </button>
+
+          <div class="answer-header-content">
+            <h3 class="answer-question-title"></h3>
+
+            <span class="answer-category-title"></span>
+          </div>
+        </div>
+
+        <div class="faq-answer-wrapper">
+          {% for faq in faqs %}
+            {% assign current_category = blank %}
+
+            {% for category in categories %}
+              {% if category.settings.category_id == faq.settings.parent_category %}
+                {% assign current_category = category %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
+
+            <div
+              class="faq-answer"
+              data-faq="{{ forloop.index0 }}-{{ faq.settings.parent_category | handleize }}"
+              data-category="{{ faq.settings.parent_category }}"
+              data-question="{{ faq.settings.question }}"
+              data-category-title="{{ current_category.settings.title }}"
+            >
+              <div class="faq-answer-content">
+                {{ faq.settings.answer }}
+              </div>
+
+              <div class="faq-navigation">
+                <button
+                  class="faq-prev-question"
+                  type="button"
+                ></button>
+
+                <button
+                  class="faq-next-question"
+                  type="button"
+                ></button>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="global-tooltip" id="global-tooltip"></div>
+  </div>
+</section>
+
+<script src="{{ 'support-widget.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Support Widget",
+  "settings": [
+    {
+      "type": "text",
+      "id": "widget_title",
+      "label": "Widget Title",
+      "default": "FAQ Categories"
+    },
+    {
+      "type": "textarea",
+      "id": "widget_icon",
+      "label": "Launcher Widget Icon"
+    },
+    {
+      "type": "text",
+      "id": "featured_heading",
+      "label": "Featured FAQs Heading",
+      "default": "Featured FAQs"
+    },
+    {
+      "type": "range",
+      "id": "featured_limit",
+      "label": "Featured FAQs Per Category",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone Number"
+    },
+    {
+      "type": "textarea",
+      "id": "phone_svg",
+      "label": "Phone Icon"
+    },
+    {
+      "type": "text",
+      "id": "phone_tooltip",
+      "label": "Phone Tooltip",
+      "default": "Call Us"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp",
+      "label": "WhatsApp Number"
+    },
+    {
+      "type": "textarea",
+      "id": "whatsapp_svg",
+      "label": "Whatsapp Icon"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_tooltip",
+      "label": "WhatsApp Tooltip",
+      "default": "Chat on WhatsApp"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email Address"
+    },
+    {
+      "type": "textarea",
+      "id": "email_svg",
+      "label": "Email Icon"
+    },
+    {
+      "type": "text",
+      "id": "email_tooltip",
+      "label": "Email Tooltip",
+      "default": "Email Us"
+    },
+    {
+      "type": "color",
+      "id": "header_color",
+      "label": "Header Background color",
+      "placeholder": "Default"
+    },
+    {
+      "type": "color",
+      "id": "widget_color",
+      "label": "Widget Background color",
+      "placeholder": "Default"
+    },
+    {
+      "type": "header",
+      "content": "Widget Launcher"
+    },
+    {
+      "type": "color",
+      "id": "launcher_bg_color",
+      "label": "Icon Background Color",
+      "default": "#d83b34"
+    },
+    {
+      "type": "color",
+      "id": "launcher_icon_color",
+      "label": "Icon Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "launcher_size",
+      "label": "Icon Size",
+      "min": 40,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "launcher_bottom_offset",
+      "label": "Bottom Offset",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "launcher_side_offset",
+      "label": "Side Offset",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "launcher_icon_size",
+      "label": "Launcher Icon Size",
+      "min": 16,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "select",
+      "id": "launcher_position",
+      "label": "Launcher Position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "text",
+          "id": "category_id",
+          "label": "Category ID"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Category Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Category Icon"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "FAQ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "parent_category",
+          "label": "Parent Category ID"
+        },
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Support Widget"
+    }
+  ]
+}
+{% endschema %}

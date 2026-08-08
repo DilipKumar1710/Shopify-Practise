@@ -1,0 +1,144 @@
+{{ 'shoppable-videos.css' | asset_url | stylesheet_tag }}
+
+<section class="shoppable-videos page-width">
+  {% assign shoppable_entries = blank %}
+
+  {% for collection in product.collections %}
+    {% assign entries = collection.metafields.custom.shoppable_videos.value %}
+
+    {% if entries != blank %}
+      {% assign shoppable_entries = entries %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+
+  {% if shoppable_entries != blank %}
+    <div class="shoppable-videos__wrapper">
+      <h2 class="shoppable-videos__heading">Shop the Look</h2>
+
+      <div class="shoppable-videos__grid">
+        {% for item in shoppable_entries %}
+          {% assign video = item.video %}
+          {% assign product = item.reference_product.value %}
+          
+            <a href="{{ product.url }}" target="_self" class="shoppable-video-card">
+                <div class="shoppable-video-card">
+                    {% if item.video %}
+                    <video
+                        playsinline
+                        preload="metadata"
+                        class="shoppable-video"
+                        muted
+                        autoplay="true"
+                        loop
+                    >
+                        <source
+                        src="{{ video | file_url }}"
+                        type="video/mp4"
+                        >
+                    </video>
+                    {% endif %}
+
+                    {% if product != blank %}
+
+                    <div class="video-product-card">
+                        <img
+                        src="{{ product.featured_image | image_url: width: 250 }}"
+                        alt="{{ product.title }}"
+                        width="120"
+                        height="120"
+                        >
+                        <div class="product-details-container">
+                        <h4>{{ product.title }}</h4>
+                        <p>{{ product.price | money }}</p>
+                        </div>
+                        {% assign product_form_id = 'quick-add-' | append: section.id | append: product.id %}
+                        <product-form data-section-id="{{ section.id }}">
+                            {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+                                <input
+                                    type="hidden"
+                                    name="id"
+                                    value="{{ product.selected_or_first_available_variant.id }}"
+                                    class="product-variant-id"
+                                    {% if product.selected_or_first_available_variant.available == false %}
+                                    disabled
+                                    {% endif %}
+                                >
+                                <button
+                                    id="{{ product_form_id }}-submit"
+                                    type="submit"
+                                    name="add"
+                                    class="quick-add__submit button button--full-width video-atc-btn"
+                                    aria-haspopup="dialog"
+                                    aria-labelledby="{{ product_form_id }}-submit title-{{ section.id }}-{{ product.id }}"
+                                    aria-live="polite"
+                                    data-sold-out-message="true"
+                                    {% if product.selected_or_first_available_variant.available == false %}
+                                    disabled
+                                    {% endif %}
+                                >
+                                    <span>
+                                    {%- if product.selected_or_first_available_variant.available -%}
+                                        {{ 'products.product.add_to_cart' | t }}
+                                    {%- else -%}
+                                        {{ 'products.product.sold_out' | t }}
+                                    {%- endif -%}
+                                    </span>
+                                    <span class="sold-out-message hidden">
+                                    {{ 'products.product.sold_out' | t }}
+                                    </span>
+                                    {%- render 'loading-spinner' -%}
+                                </button>
+                            {%- endform -%}
+                        </product-form>
+                    </div>
+                    {% endif %}
+                </div>
+            </a>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+</section>
+
+{{ 'shoppable-videos.js' | asset_url | script_tag }}
+
+{% schema %}
+{
+  "name": "Shoppable Videos",
+  "tag": "section",
+  "class": "shoppable-videos-section",
+  "templates": ["product"],
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Shop the Look"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Enable autoplay",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "muted",
+      "label": "Mute videos",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product_card",
+      "label": "Show linked product",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shoppable Videos"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,419 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Browse our latest products",
+            "heading_size": "h0"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop all",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "button"
+      ],
+      "settings": {
+        "image_overlay_opacity": 40,
+        "image_height": "large",
+        "image_behavior": "none",
+        "desktop_content_position": "bottom-center",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    },
+    "featured_collection_eiRHpk": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "",
+        "products_to_show": 4,
+        "title": "Featured collection",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_banner_6N8xXd": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_GVnnFP": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image banner",
+            "heading_size": "h1"
+          }
+        },
+        "text_ggbFjP": {
+          "type": "text",
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        },
+        "buttons_6A6V3r": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_GVnnFP",
+        "text_ggbFjP",
+        "buttons_6A6V3r"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "support_widget_QHQ76U": {
+      "type": "support-widget",
+      "blocks": {
+        "category_RQnded": {
+          "type": "category",
+          "settings": {
+            "category_id": "shipping-and-delivery",
+            "title": "Shipping & Delivery",
+            "icon": "shopify://shop_images/claim_6180184.png"
+          }
+        },
+        "category_yWehQD": {
+          "type": "category",
+          "settings": {
+            "category_id": "exchange-and-returns",
+            "title": "Exchange & Returns",
+            "icon": "shopify://shop_images/return-product_14813188.png"
+          }
+        },
+        "category_KAVVLD": {
+          "type": "category",
+          "settings": {
+            "category_id": "miscellaneous",
+            "title": "Miscellaneous",
+            "icon": "shopify://shop_images/online-voting_3468564.png"
+          }
+        },
+        "category_NQFLwK": {
+          "type": "category",
+          "settings": {
+            "category_id": "international-orders",
+            "title": "International Orders",
+            "icon": "shopify://shop_images/delivery_9512341.png"
+          }
+        },
+        "category_9RiTFV": {
+          "type": "category",
+          "settings": {
+            "category_id": "contact-information",
+            "title": "Contact Information",
+            "icon": "shopify://shop_images/customer-service_1370908.png"
+          }
+        },
+        "faq_BPqtdz": {
+          "type": "faq",
+          "settings": {
+            "parent_category": "shipping-and-delivery",
+            "question": "How long does it take to receive an order?",
+            "answer": "<p>Our products are handcrafted and made-to-order. Typically, it takes<strong>4-5 days to craft</strong>an item, followed by an additional<strong>3-4 days for delivery.</strong>Please allow<strong>7 to 10 days</strong>in total to receive your order.</p>"
+          }
+        },
+        "faq_xGMGnc": {
+          "type": "faq",
+          "settings": {
+            "parent_category": "shipping-and-delivery",
+            "question": "How can I track my order?",
+            "answer": "<p>Once your order is shipped, you will receive tracking information via <strong>email, SMS, and WhatsApp.</strong>You can use the provided tracking number to monitor the status and estimated delivery date of your order. Link to -&gt;<a href=\"https://banjaaranstudio.ithinklogistics.co.in/\" target=\"_blank\">Order Tracking Page</a></p>"
+          }
+        },
+        "faq_9jQGGP": {
+          "type": "faq",
+          "settings": {
+            "parent_category": "shipping-and-delivery",
+            "question": "What are the shipping rates for orders within India?",
+            "answer": "<p><strong>We offer free shipping across India for all prepaid orders.</strong>For Cash on Delivery (COD) orders, a charge of ₹199 is added.</p>"
+          }
+        },
+        "faq_pMHNTG": {
+          "type": "faq",
+          "settings": {
+            "parent_category": "shipping-and-delivery",
+            "question": "How long does it take to receive an order?",
+            "answer": "<p>Our products are handcrafted and made-to-order. Typically, it takes<strong>4-5 days to craft</strong>an item, followed by an additional<strong>3-4 days for delivery.</strong>Please allow<strong>7 to 10 days</strong>in total to receive your order.</p>"
+          }
+        },
+        "faq_CtAXnM": {
+          "type": "faq",
+          "settings": {
+            "parent_category": "shipping-and-delivery",
+            "question": "Which courier partners do you use for delivery?",
+            "answer": "<p>We use multiple reputed courier partners like<strong>Bluedart, Delhivery, FedEx, and Aramex,</strong>employing their Air Express services to ensure timely delivery without additional charges.</p>"
+          }
+        },
+        "faq_GcRWaU": {
+          "type": "faq",
+          "settings": {
+            "parent_category": "exchange-and-returns",
+            "question": "How do I start the exchange process and is there a time limit to request an exchange?",
+            "answer": "<p>To start an exchange at Banjaaran Studio, submit your request through our<a href=\"https://banjaaran.in/apps/return_prime\" target=\"_blank\">Exchange Request Portal</a>within 7 days of delivery. We cover all shipping costs for exchanges, ensuring a hassle-free process for you.</p>"
+          }
+        },
+        "faq_X7ypni": {
+          "type": "faq",
+          "settings": {
+            "parent_category": "exchange-and-returns",
+            "question": "Can I exchange my item for a different product or style?",
+            "answer": "<p>Exchanges are <strong>strictly limited to size changes only</strong>. We do<strong>not allow exchanges</strong>for different products or styles. If you need a different product or style, please<strong>place a new order</strong>for the desired item or contact support for a resolution.</p>"
+          }
+        },
+        "faq_fXGcid": {
+          "type": "faq",
+          "settings": {
+            "parent_category": "exchange-and-returns",
+            "question": "What conditions must the item meet for an exchange or return to be eligible?",
+            "answer": "<p>The item must be in immaculate, resellable condition with no signs of wear, and must retain all original packaging, tags, accessories, and gifts.</p>"
+          }
+        },
+        "faq_tPwcWU": {
+          "type": "faq",
+          "settings": {
+            "parent_category": "exchange-and-returns",
+            "question": "What happens if the exchanged item doesn't fit or meet my expectations again?",
+            "answer": "<p>Once a size exchange is processed, no further exchanges or returns will be permitted, making the sale final. Please contact support for furthur assistence.</p>"
+          }
+        },
+        "faq_qt8aGM": {
+          "type": "faq",
+          "settings": {
+            "parent_category": "exchange-and-returns",
+            "question": "How long does the entire exchange or return process take?",
+            "answer": "<p>The entire process for <strong>exchanges </strong>can take <strong>11-18 days</strong>, and for<strong>returns</strong>, it can take <strong>6-12 days</strong>, depending on logistics, inspection, and production times.</p>"
+          }
+        },
+        "faq_PqxwNg": {
+          "type": "faq",
+          "settings": {
+            "parent_category": "miscellaneous",
+            "question": "Where are we based and do you have any physical stores?",
+            "answer": "<p>We are based in<strong>Faridabad, Delhi NCR</strong>, where we manage our in-house manufacturing. Currently,<strong>we exclusively sell our products online</strong>and do not operate any physical retail outlets. We<strong>ship PAN India.</strong>Please enjoy browsing our comprehensive online collection, and if you have any queries or need assistance, feel free to reach out.</p>"
+          }
+        },
+        "faq_LYgg8C": {
+          "type": "faq",
+          "settings": {
+            "parent_category": "miscellaneous",
+            "question": "Do you offer product customizations?",
+            "answer": "<p>At this time,<strong>we do not offer customizations.</strong>Please explore our existing product range to find items that meet your needs.</p>"
+          }
+        },
+        "faq_GzDJnW": {
+          "type": "faq",
+          "settings": {
+            "parent_category": "miscellaneous",
+            "question": "When is a token amount required for COD orders?",
+            "answer": "<p>A token amount of<strong>INR 500</strong>is required for COD orders if you've previously not accepted a COD order, your address is incomplete, or the delivery is to a distant region. This ensures the dedication of our artisans is respected. You'll receive a payment link via email for secure payment.</p>"
+          }
+        },
+        "faq_LztC9y": {
+          "type": "faq",
+          "settings": {
+            "parent_category": "miscellaneous",
+            "question": "What is the tax component in the products you sell?",
+            "answer": "<p>The price of our products includes<strong>18% GST</strong>, ensuring transparency in your purchase.</p>"
+          }
+        },
+        "faq_PKyfc9": {
+          "type": "faq",
+          "settings": {
+            "parent_category": "international-orders",
+            "question": "What are the shipping costs and delivery timeline for international orders?",
+            "answer": "<p><strong>International shipping costs are paid by the customer</strong>and are not included in the free shipping offer. We aim to ship your order within <strong>10-14 days</strong>, but delivery times may vary based on location, distance, and logistics partners.</p>"
+          }
+        },
+        "faq_8CRHqf": {
+          "type": "faq",
+          "settings": {
+            "parent_category": "international-orders",
+            "question": "How can I place my international order and what are the payment options?",
+            "answer": "<p>If you are facing any issues placing an international order, please contact support. For all international orders, payment must be prepaid using <strong>PayPal</strong>or<strong>Razorpay</strong>;<strong>Cash on Delivery (COD) is not available </strong>for these transactions.</p>"
+          }
+        },
+        "faq_CiHVD7": {
+          "type": "faq",
+          "settings": {
+            "parent_category": "international-orders",
+            "question": "Are there additional fees I should be aware of when ordering internationally?",
+            "answer": "<p>Yes, the recipient may be responsible for handling fees and taxes applicable in your country. For orders to the<strong>UK and EU</strong>, Customs and VAT will be charged as per local laws, which are payable by the customer.</p>"
+          }
+        },
+        "faq_Mz894M": {
+          "type": "faq",
+          "settings": {
+            "parent_category": "international-orders",
+            "question": "What should I do if I receive a damaged item or if there are issues with my international order?",
+            "answer": "<p>If your order arrives damaged or differs from what was ordered, please contact us immediately at <a>test@gmail.in </a>or via WhatsApp at<a href=\"https://wa.me/919999474819\" target=\"_blank\">+91-9876543210 </a>for assistance.</p>"
+          }
+        },
+        "faq_J78miQ": {
+          "type": "faq",
+          "settings": {
+            "parent_category": "international-orders",
+            "question": "What is the policy for exchanges and returns on international orders?",
+            "answer": "<p>We do not offer exchanges or returns on international orders. Please review your order carefully before finalizing to ensure it meets your needs.</p>"
+          }
+        },
+        "faq_RYcHXE": {
+          "type": "faq",
+          "settings": {
+            "parent_category": "contact-information",
+            "question": "How can i contact customer support?",
+            "answer": "<p>Our support is available via call, WhatsApp, and email at the provided contact details.<br/><br/>Call (11am to 6pm):<a href=\"tel:+919999474819\" target=\"_blank\">+91-9876543210 </a>WhatsApp:<a href=\"https://wa.me/919999474819\" target=\"_blank\">+919876543212</a><br/>Email:<a href=\"mailto:support@banjaaran.in\" target=\"_blank\">test@gmail.in</a>/<a href=\"mailto:studio@banjaaran.in\" target=\"_blank\">test@gmail.in</a></p>"
+          }
+        },
+        "faq_33C4Yz": {
+          "type": "faq",
+          "settings": {
+            "parent_category": "contact-information",
+            "question": "How can I contact you for business-related queries, like collaborations, business proposals, or bulk order inquiries?",
+            "answer": "<p>For business-related inquiries, please send an email to<br/><a href=\"mailto:karanveer@banjaaran.in\" target=\"_blank\">Dilip@test.in </a>and <a href=\"mailto:meera@banjaaran.in\" target=\"_blank\">Kumar@Test.in</a>. <br/>Be sure to clearly mention the<strong>purpose of your inquiry in the subject line</strong>to ensure a timely response. We look forward to exploring potential opportunities with you.</p>"
+          }
+        },
+        "faq_CzAc6U": {
+          "type": "faq",
+          "settings": {
+            "parent_category": "contact-information",
+            "question": "How can I apply for a work opportunity at Banjaaran Studio?",
+            "answer": "<p>Please fill out the application form available at the following link (<a href=\"https://forms.gle/WjH8MhVfQ3TbWDf46\" target=\"_blank\">Careers form link</a>) to apply for work opportunities at Banjaaran Studio. We look forward to considering your application.</p>"
+          }
+        },
+        "faq_KdFyef": {
+          "type": "faq",
+          "settings": {
+            "parent_category": "contact-information",
+            "question": "How can I submit a complaint or report an issue?",
+            "answer": "<p>If you encounter any issues with our products or services, please send an email to <a href=\"mailto:karanveer@banjaaran.in\" target=\"_blank\">Test@test.in</a>. Ensure you include your order number in the subject line for us to address your concerns promptly and effectively.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "category_RQnded",
+        "category_yWehQD",
+        "category_KAVVLD",
+        "category_NQFLwK",
+        "category_9RiTFV",
+        "faq_BPqtdz",
+        "faq_xGMGnc",
+        "faq_9jQGGP",
+        "faq_pMHNTG",
+        "faq_CtAXnM",
+        "faq_GcRWaU",
+        "faq_X7ypni",
+        "faq_fXGcid",
+        "faq_tPwcWU",
+        "faq_qt8aGM",
+        "faq_PqxwNg",
+        "faq_LYgg8C",
+        "faq_GzDJnW",
+        "faq_LztC9y",
+        "faq_PKyfc9",
+        "faq_8CRHqf",
+        "faq_CiHVD7",
+        "faq_Mz894M",
+        "faq_J78miQ",
+        "faq_RYcHXE",
+        "faq_33C4Yz",
+        "faq_CzAc6U",
+        "faq_KdFyef"
+      ],
+      "name": "Support Widget",
+      "settings": {
+        "widget_title": "FAQ Categories",
+        "widget_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" id=\"Capa_1\" x=\"0px\" y=\"0px\" viewbox=\"0 0 512 512\" style=\"enable-background:new 0 0 512 512;\" width=\"512\" height=\"512\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:space=\"preserve\">\n<g>\n\t<path style=\"fill:none;stroke:#000000;stroke-width:40;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;\" d=\"\n\t\tM96,356H60c-22.091,0-40-17.909-40-40v-80c0-22.091,17.909-40,40-40h36V356z\"></path>\n\t<path style=\"fill:none;stroke:#000000;stroke-width:40;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;\" d=\"\n\t\tM452,356h-36V196h36c22.091,0,40,17.909,40,40v80C492,338.091,474.091,356,452,356z\"></path>\n\t<path style=\"fill:none;stroke:#000000;stroke-width:40;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;\" d=\"\n\t\tM96,196L96,196c0-88.366,71.634-160,160-160h0c88.365,0,160,71.634,160,160v0\"></path>\n\t\n\t\t<circle style=\"fill:none;stroke:#000000;stroke-width:40;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;\" cx=\"256\" cy=\"436\" r=\"40\"></circle>\n\t<path style=\"fill:none;stroke:#000000;stroke-width:40;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;\" d=\"\n\t\tM296,436h40c44.183,0,80-35.817,80-80v0\"></path>\n</g>\n</svg>",
+        "featured_heading": "General Queries",
+        "featured_limit": 2,
+        "phone": "9876543210",
+        "phone_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" id=\"svg912\" width=\"682.66669\" height=\"682.66669\" viewbox=\"0 0 682.66669 682.66669\" xmlns:svg=\"http://www.w3.org/2000/svg\" xml:space=\"preserve\"><defs id=\"defs916\"><clippath clippathunits=\"userSpaceOnUse\" id=\"clipPath926\"><path d=\"M 0,512 H 512 V 0 H 0 Z\" id=\"path924\"></path></clippath></defs><g id=\"g918\" transform=\"matrix(1.3333333,0,0,-1.3333333,0,682.66667)\"><g id=\"g920\"><g id=\"g922\" clip-path=\"url(#clipPath926)\"><g id=\"g928\" transform=\"translate(143.5332,497)\"><path d=\"m 0,0 c -34.085,0 -66.781,-13.542 -90.889,-37.646 -24.1,-24.105 -37.644,-56.798 -37.644,-90.887 0,-195.215 158.249,-353.467 353.467,-353.467 34.085,0 66.781,13.542 90.888,37.646 24.101,24.105 37.645,56.798 37.645,90.887 L 192.8,-289.2 160.667,-369.533 h -0.017 c -97.596,0 -176.716,79.118 -176.716,176.717 v 0.016 l 80.333,32.133 z\" style=\"fill:none;stroke:#000000;stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1\" id=\"path930\"></path></g></g></g></g></svg>",
+        "phone_tooltip": "Call Us",
+        "whatsapp": "9876543210",
+        "whatsapp_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" id=\"svg990\" width=\"682.66669\" height=\"682.66669\" viewbox=\"0 0 682.66669 682.66669\" xmlns:svg=\"http://www.w3.org/2000/svg\" xml:space=\"preserve\"><defs id=\"defs994\"><clippath clippathunits=\"userSpaceOnUse\" id=\"clipPath1004\"><path d=\"M 0,512 H 512 V 0 H 0 Z\" id=\"path1002\"></path></clippath></defs><g id=\"g996\" transform=\"matrix(1.3333333,0,0,-1.3333333,0,682.66667)\"><g id=\"g998\"><g id=\"g1000\" clip-path=\"url(#clipPath1004)\"><g id=\"g1006\" transform=\"translate(127.8906,53.6504)\"><path d=\"m 0,0 -112.89,-38.654 39.651,111.893 c -23.835,37.279 -39.652,81.581 -39.652,129.11 0,132.548 108.452,241 241,241 132.549,0 241,-108.452 241,-241 0,-132.548 -108.451,-241 -241,-241 C 80.58,-38.651 37.278,-23.835 0,0 Z\" style=\"fill:none;stroke:#000000;stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1\" id=\"path1008\"></path></g><g id=\"g1010\" transform=\"translate(151.9375,386.4687)\"><path d=\"m 0,0 c -26.315,-26.314 -18.14,-124.801 47.646,-190.588 65.788,-65.787 164.274,-73.961 190.588,-47.647 l 11.912,11.912 c 6.58,6.579 6.58,17.245 0,23.823 l -47.647,47.647 c -6.578,6.579 -17.244,6.579 -23.823,0 l -11.911,-11.911 c -13.159,-13.158 -34.491,-13.158 -47.648,0 l -47.647,47.647 c -13.157,13.157 -13.157,34.489 0,47.647 l 11.912,11.911 c 6.579,6.579 6.579,17.245 0,23.824 L 35.735,11.912 c -6.579,6.579 -17.245,6.579 -23.824,0 z\" style=\"fill:none;stroke:#000000;stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1\" id=\"path1012\"></path></g></g></g></g></svg>",
+        "whatsapp_tooltip": "Chat on WhatsApp",
+        "email": "test@gmail.com",
+        "email_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" id=\"svg447\" width=\"682.66669\" height=\"682.66669\" viewbox=\"0 0 682.66669 682.66669\" xmlns:svg=\"http://www.w3.org/2000/svg\" xml:space=\"preserve\"><defs id=\"defs451\"><clippath clippathunits=\"userSpaceOnUse\" id=\"clipPath461\"><path d=\"M 0,512 H 512 V 0 H 0 Z\" id=\"path459\"></path></clippath></defs><g id=\"g453\" transform=\"matrix(1.3333333,0,0,-1.3333333,0,682.66667)\"><g id=\"g455\"><g id=\"g457\" clip-path=\"url(#clipPath461)\"><g id=\"g463\" transform=\"translate(28.3687,375.624)\"><path d=\"m 0,0 c -8.355,5.567 -13.368,14.934 -13.368,24.967 v 0.025 c 0,17.737 14.38,32.116 32.118,32.116 h 417.763 c 17.737,0 32.117,-14.379 32.117,-32.116 V 24.976 24.967 C 468.63,14.934 463.618,5.567 455.263,0 414.494,-27.185 291.648,-109.076 245.457,-139.876 c -10.796,-7.198 -24.855,-7.198 -35.651,0 C 163.614,-109.076 40.769,-27.185 0,0 Z\" style=\"fill:none;stroke:#000000;stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1\" id=\"path465\"></path></g><g id=\"g467\" transform=\"translate(15.001,400.5996)\"><path d=\"m 0,0 v -289.199 c 0,-8.523 3.382,-16.693 9.415,-22.718 6.025,-6.033 14.195,-9.415 22.718,-9.415 h 417.732 c 8.523,0 16.693,3.382 22.718,9.415 6.033,6.025 9.415,14.195 9.415,22.718 V 0\" style=\"fill:none;stroke:#000000;stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1\" id=\"path469\"></path></g></g></g></g></svg>",
+        "email_tooltip": "Email Us",
+        "header_color": "#d83b34",
+        "widget_color": "#f5f6f8",
+        "launcher_bg_color": "#d83b34",
+        "launcher_icon_color": "#ffffff",
+        "launcher_size": 60,
+        "launcher_bottom_offset": 60,
+        "launcher_side_offset": 30,
+        "launcher_icon_size": 26,
+        "launcher_position": "left"
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "featured_collection_eiRHpk",
+    "image_banner_6N8xXd",
+    "support_widget_QHQ76U"
+  ]
+}

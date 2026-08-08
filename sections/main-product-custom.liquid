@@ -1,0 +1,46 @@
+{{ 'main-product-custom.css' | asset_url | stylesheet_tag }}
+
+<div class="page-width">
+  <div class="product-layout">
+    <div class="product-images">
+      <img
+        id="main-product-image"
+        src="{{ product.featured_image | image_url: width: 600 }}"
+        alt="{{ product.title }}"
+        height="auto"
+        width="100%"
+      >
+    </div>
+
+    <div class="product-info">
+      <h1>{{ product.title }}</h1>
+      <h3 id="product-price">{{ product.price | money_without_trailing_zeros }}</h3>
+      {% render 'custom-variant-selector', product: product %}
+    </div>
+  </div>
+
+  <div id="sticky-atc" class="sticky-atc">
+    <div class="sticky-content">
+      <div class="sticky-info">
+        <p class="sticky-title">{{ product.title }}</p>
+        <p id="sticky-variant"></p>
+        <p id="sticky-price"></p>
+      </div>
+
+      <button id="sticky-add-to-cart" disabled>Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+<script src="{{ 'main-product-custom.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Custom Product Form",
+  "presets": [
+    {
+      "name": "Custom Product Form"
+    }
+  ]
+}
+{% endschema %}
