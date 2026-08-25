@@ -144,7 +144,7 @@
     "blocks": {
       "5958325610427746679": {
         "type": "shopify://apps/searchgro-search-filter/blocks/search-filter/88e24ea2-237e-4897-9894-0fe383246073",
-        "disabled": false,
+        "disabled": true,
         "settings": {}
       }
     },
